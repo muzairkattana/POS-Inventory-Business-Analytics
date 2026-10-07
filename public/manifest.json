@@ -1,0 +1,62 @@
+{
+  "name": "Biocure Health Care - Invoice Manager",
+  "short_name": "Biocure Invoices",
+  "description": "Professional invoice management system for Biocure Health Care",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1e3a8a",
+  "theme_color": "#1e40af",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en-US",
+  "categories": ["business", "finance", "productivity"],
+  "icons": [
+    {
+      "src": "/images/biocure-health-care-logo.ico",
+      "sizes": "any",
+      "type": "image/x-icon",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/biocure-health-care-logo.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/images/biocure-health-care-logo.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "maskable any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Create Invoice",
+      "short_name": "New Invoice",
+      "description": "Create a new invoice quickly",
+      "url": "/?action=new",
+      "icons": [
+        {
+          "src": "/images/biocure-health-care-logo.jpg",
+          "sizes": "96x96",
+          "type": "image/jpeg"
+        }
+      ]
+    },
+    {
+      "name": "View Invoices",
+      "short_name": "All Invoices",
+      "description": "View all invoices",
+      "url": "/invoices",
+      "icons": [
+        {
+          "src": "/images/biocure-health-care-logo.jpg",
+          "sizes": "96x96",
+          "type": "image/jpeg"
+        }
+      ]
+    }
+  ],
+  "screenshots": []
+}

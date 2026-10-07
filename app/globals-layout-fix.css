@@ -1,0 +1,31 @@
+/* Fix for floating action buttons to stay within main content area */
+.floating-actions {
+  /* Ensure buttons stay within the main content, not over sidebar */
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 50;
+}
+
+/* On desktop with sidebar, offset from right based on viewport */
+@media (min-width: 1024px) {
+  .floating-actions {
+    /* Stay within main content area, not absolute page */
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+  }
+}
+
+/* Footer should span full width of main content, not overlap sidebar */
+footer {
+  width: 100%;
+  position: relative;
+}
+
+/* Ensure main content area is positioned relative for fixed children */
+main {
+  position: relative;
+  min-height: calc(100vh - 64px); /* Subtract header height */
+}
+

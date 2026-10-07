@@ -1,0 +1,27 @@
+/* Fix for floating action buttons to not overlap content when sidebar is open */
+
+/* On desktop (lg+), adjust floating buttons to account for sidebar width when it's visible */
+@media (min-width: 1024px) {
+  /* Check if body or root element has sidebar open state */
+  body:has(.sidebar-open) .floating-actions,
+  body:has([data-sidebar="open"]) .floating-actions {
+    right: calc(1rem + 0px) !important;
+  }
+  
+  body:has(.sidebar-open) .mobile-action-menu,
+  body:has([data-sidebar="open"]) .mobile-action-menu {
+    left: calc(1rem + 0px) !important;
+  }
+}
+
+/* Ensure buttons don't overlap with content on smaller screens */
+@media (max-width: 1023px) {
+  .floating-actions {
+    right: 1rem;
+  }
+  
+  .mobile-action-menu {
+    left: 1rem;
+  }
+}
+

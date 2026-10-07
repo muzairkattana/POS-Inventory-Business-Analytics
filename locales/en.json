@@ -1,0 +1,56 @@
+{
+  "app": {
+    "name": "Biocure Health Care",
+    "tagline": "Professional Invoice Management System"
+  },
+  "nav": {
+    "back": "Back",
+    "dashboard": "Dashboard",
+    "help": "Help",
+    "invoices": "Invoices",
+    "clients": "Clients",
+    "reports": "Reports",
+    "settings": "Settings",
+    "adminLogs": "Admin Logs"
+  },
+  "sidebar": {
+    "quickAccess": {
+      "title": "Quick Access",
+      "desc": "Create invoices, manage clients, and track payments easily."
+    }
+  },
+  "help": {
+    "title": "Help & Documentation",
+    "subtitle": "Everything you need to know",
+    "buttons": {
+      "print": "Print",
+      "backToApp": "Back to App"
+    }
+  },
+  "auth": {
+    "logout": "Logout"
+  },
+  "actions": {
+    "downloadWord": "Download Word",
+    "openCalculator": "Open Calculator"
+  },
+  "fields": {
+    "invoiceNumber": "Invoice Number",
+    "invoiceDate": "Invoice Date",
+    "dueDate": "Due Date",
+    "name": "Name",
+    "address": "Address",
+    "city": "City",
+    "phone": "Phone",
+    "email": "Email"
+  },
+  "invoice": {
+    "header": {
+      "title": "INVOICE",
+      "no": "Invoice No.",
+      "date": "Date",
+      "dueDate": "Due Date"
+    },
+    "billTo": "Bill To:"
+  }
+}

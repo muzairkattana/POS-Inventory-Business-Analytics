@@ -1,0 +1,144 @@
+================================================================================
+VERCEL ENVIRONMENT VARIABLES - COPY & PASTE REFERENCE
+================================================================================
+
+Add these environment variables in your Vercel project:
+Dashboard → Your Project → Settings → Environment Variables
+
+================================================================================
+REQUIRED VARIABLES (6 Total)
+================================================================================
+
+1. NEXT_PUBLIC_SUPABASE_URL
+   Value: [Your Supabase Project URL]
+   Example: https://xxxxxxxxxxxxx.supabase.co
+   Get from: Supabase Dashboard → Project Settings → API → Project URL
+
+2. NEXT_PUBLIC_SUPABASE_ANON_KEY
+   Value: [Your Supabase Anon Key]
+   Example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+   Get from: Supabase Dashboard → Project Settings → API → anon/public key
+
+3. SUPABASE_SERVICE_ROLE_KEY
+   Value: [Your Supabase Service Role Key]
+   Example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+   Get from: Supabase Dashboard → Project Settings → API → service_role key
+   ⚠️ IMPORTANT: Keep this secret! Never expose publicly!
+
+4. NEXT_PUBLIC_APP_URL
+   Value: [Your Vercel Deployment URL]
+   Example: https://your-app.vercel.app
+   Note: Use http://localhost:3000 for first deployment, update after
+
+5. NEXTAUTH_URL
+   Value: [Your Vercel Deployment URL - Same as above]
+   Example: https://your-app.vercel.app
+   Note: Must match NEXT_PUBLIC_APP_URL
+
+6. NEXTAUTH_SECRET
+   Value: [Random 32+ character string]
+   Generate with: openssl rand -base64 32
+   Or use: 5?]>t/.b;io#V:KW/m2q7jOXN]{PSg&-
+
+================================================================================
+OPTIONAL VARIABLES (Google OAuth - for Google Drive Integration)
+================================================================================
+
+7. NEXT_PUBLIC_GOOGLE_CLIENT_ID
+   Value: [Your Google OAuth Client ID]
+   Get from: Google Cloud Console → APIs & Services → Credentials
+
+8. GOOGLE_CLIENT_SECRET
+   Value: [Your Google OAuth Client Secret]
+   Get from: Google Cloud Console → APIs & Services → Credentials
+
+9. NEXT_PUBLIC_GOOGLE_REDIRECT_URI
+   Value: https://your-app.vercel.app/api/auth/callback/google
+   Note: Update with your actual Vercel URL
+
+================================================================================
+QUICK SETUP STEPS
+================================================================================
+
+1. Create Supabase Project
+   → Go to: https://supabase.com/dashboard
+   → Create new project named "Biocure Invoice System"
+   → Run SQL schema from: supabase/schema.sql
+
+2. Get Supabase Credentials
+   → Supabase Dashboard → Project Settings → API
+   → Copy: Project URL, anon key, service_role key
+
+3. Deploy to Vercel
+   → Go to: https://vercel.com/dashboard
+   → Import your GitHub repository
+   → Add all 6 required environment variables above
+   → Click Deploy
+
+4. Update URLs After First Deployment
+   → Copy your Vercel app URL (e.g., https://your-app.vercel.app)
+   → Update these variables in Vercel:
+     - NEXT_PUBLIC_APP_URL
+     - NEXTAUTH_URL
+   → Redeploy (automatic)
+
+5. Configure Supabase Auth
+   → Supabase Dashboard → Authentication → URL Configuration
+   → Site URL: https://your-app.vercel.app
+   → Add Redirect URLs:
+     - https://your-app.vercel.app/
+     - https://your-app.vercel.app/login
+
+================================================================================
+DEFAULT LOGIN CREDENTIALS
+================================================================================
+
+Offline Mode (when Supabase not configured):
+  Email: Mushtaqkatana55@gmail.com
+  Password: Mushtaq1979
+
+Online Mode (with Supabase):
+  Create new account via sign-up form
+  Email verification required
+
+================================================================================
+VERIFICATION CHECKLIST
+================================================================================
+
+After deployment, verify:
+✅ Login page loads with Biocure Health Care logo
+✅ Can create new user account
+✅ Can sign in successfully
+✅ Can create and save invoices
+✅ Invoices appear in Supabase database
+✅ PDF export works
+✅ PWA install prompt appears
+
+================================================================================
+TROUBLESHOOTING
+================================================================================
+
+Issue: "Supabase not configured" error
+Fix: Verify all 3 Supabase variables are set correctly in Vercel
+
+Issue: Can't sign in
+Fix: Check NEXTAUTH_URL and NEXTAUTH_SECRET are set
+
+Issue: 404 errors
+Fix: Verify NEXT_PUBLIC_APP_URL matches your actual Vercel URL
+
+Issue: Database errors
+Fix: Verify schema.sql was executed successfully in Supabase
+
+================================================================================
+SUPPORT LINKS
+================================================================================
+
+Vercel Dashboard: https://vercel.com/dashboard
+Supabase Dashboard: https://supabase.com/dashboard
+Vercel Docs: https://vercel.com/docs
+Supabase Docs: https://supabase.com/docs
+
+Full deployment guide: See VERCEL_DEPLOYMENT_GUIDE.md
+
+================================================================================

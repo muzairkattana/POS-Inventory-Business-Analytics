@@ -1,0 +1,746 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: oklch(0.98 0.005 85);
+  --foreground: oklch(0.15 0.01 85);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.15 0.01 85);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.15 0.01 85);
+  --primary: oklch(0.25 0.08 85);
+  --primary-foreground: oklch(0.98 0.005 85);
+  --secondary: oklch(0.95 0.01 85);
+  --secondary-foreground: oklch(0.25 0.08 85);
+  --muted: oklch(0.95 0.01 85);
+  --muted-foreground: oklch(0.45 0.02 85);
+  --accent: oklch(0.6 0.15 280);
+  --accent-foreground: oklch(0.98 0.005 85);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.98 0.005 85);
+  --border: oklch(0.9 0.01 85);
+  --input: oklch(0.95 0.01 85);
+  --ring: oklch(0.6 0.15 280);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 0.75rem;
+  --sidebar: oklch(0.98 0.005 85);
+  --sidebar-foreground: oklch(0.15 0.01 85);
+  --sidebar-primary: oklch(0.25 0.08 85);
+  --sidebar-primary-foreground: oklch(0.98 0.005 85);
+  --sidebar-accent: oklch(0.95 0.01 85);
+  --sidebar-accent-foreground: oklch(0.25 0.08 85);
+  --sidebar-border: oklch(0.9 0.01 85);
+  --sidebar-ring: oklch(0.6 0.15 280);
+}
+
+.dark {
+  --background: oklch(0.22 0.035 255);
+  --foreground: oklch(0.98 0.005 255);
+  --card: oklch(0.27 0.04 255);
+  --card-foreground: oklch(0.98 0.005 255);
+  --popover: oklch(0.27 0.04 255);
+  --popover-foreground: oklch(0.98 0.005 255);
+  --primary: oklch(0.65 0.22 265);
+  --primary-foreground: oklch(0.98 0.005 255);
+  --secondary: oklch(0.32 0.04 255);
+  --secondary-foreground: oklch(0.98 0.005 255);
+  --muted: oklch(0.30 0.035 255);
+  --muted-foreground: oklch(0.82 0.02 255);
+  --accent: oklch(0.35 0.05 260);
+  --accent-foreground: oklch(0.98 0.005 255);
+  --destructive: oklch(0.60 0.22 25);
+  --destructive-foreground: oklch(0.98 0.005 255);
+  --border: oklch(0.36 0.04 255);
+  --input: oklch(0.32 0.04 255);
+  --ring: oklch(0.65 0.22 265);
+  --sidebar: oklch(0.20 0.035 255);
+  --sidebar-foreground: oklch(0.98 0.005 255);
+  --sidebar-primary: oklch(0.65 0.22 265);
+  --sidebar-primary-foreground: oklch(0.98 0.005 255);
+  --sidebar-accent: oklch(0.30 0.04 255);
+  --sidebar-accent-foreground: oklch(0.98 0.005 255);
+  --sidebar-border: oklch(0.34 0.04 255);
+  --sidebar-ring: oklch(0.65 0.22 265);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Print-specific styles */
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  html, body {
+    width: 210mm !important;
+    height: 297mm !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: white !important;
+    font-size: 14px !important;
+  }
+
+  .print\\:hidden {
+    display: none !important;
+  }
+
+  .print\\:block {
+    display: block !important;
+  }
+
+  .print\\:inline {
+    display: inline !important;
+  }
+
+  .invoice-document {
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+    page-break-inside: avoid !important;
+    transform: none !important;
+    scale: none !important;
+  }
+
+  .invoice-header {
+    background: linear-gradient(to right, #1e3a8a, #1e40af) !important;
+    color: white !important;
+    padding: 1rem !important;
+  }
+
+  table {
+    page-break-inside: auto !important;
+    width: 100% !important;
+    border-collapse: collapse !important;
+  }
+
+  tr {
+    page-break-inside: avoid !important;
+    page-break-after: auto !important;
+  }
+
+  th, td {
+    padding: 0.5rem !important;
+    font-size: 12px !important;
+    border: 1px solid #e5e7eb !important;
+  }
+
+  th {
+    background-color: #1e3a8a !important;
+    color: white !important;
+    font-weight: bold !important;
+  }
+
+  @page {
+    size: A4;
+    margin: 0.3in;
+  }
+}
+
+/* Enhanced styling for professional look */
+.invoice-document {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.dark .invoice-document {
+  background-color: oklch(0.15 0.02 260) !important;
+  color: oklch(0.96 0.005 260) !important;
+  border: 1px solid oklch(0.26 0.03 260) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+}
+
+.invoice-header {
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+}
+
+.dark .invoice-header {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%) !important;
+  border-bottom: 1px solid oklch(0.28 0.03 260);
+}
+
+/* Table styling */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  border: 1px solid var(--border);
+  padding: 12px;
+}
+
+th {
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+  color: white;
+  font-weight: 600;
+}
+
+.dark th {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%) !important;
+  color: oklch(0.96 0.005 260) !important;
+  border-color: oklch(0.26 0.03 260) !important;
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--muted);
+}
+
+tbody tr:hover {
+  background-color: var(--accent);
+}
+
+/* Input styling for seamless editing */
+input[type="text"],
+input[type="number"],
+textarea {
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 100%;
+}
+
+.dark input[type="text"],
+.dark input[type="number"],
+.dark textarea {
+  color: oklch(0.96 0.005 260) !important;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus {
+  background-color: rgba(59, 130, 246, 0.05);
+  border-radius: 4px;
+}
+
+.dark input[type="text"]:focus,
+.dark input[type="number"]:focus,
+.dark textarea:focus {
+  background-color: rgba(99, 102, 241, 0.15) !important;
+}
+
+/* Mobile-first responsive design */
+@media (max-width: 640px) {
+  .invoice-document {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    border-radius: 0;
+    font-size: 0.9rem;
+  }
+
+  .invoice-header {
+    padding: 1rem !important;
+  }
+
+  .invoice-header .flex {
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+
+  .invoice-header .text-right {
+    text-align: left !important;
+  }
+
+  .invoice-header h1 {
+    font-size: 1.25rem !important;
+  }
+
+  .invoice-header h2 {
+    font-size: 1.5rem !important;
+  }
+
+  /* Table responsiveness */
+  table {
+    font-size: 0.75rem !important;
+  }
+
+  th,
+  td {
+    padding: 0.5rem !important;
+  }
+
+  /* Hide less important columns on mobile */
+  .mobile-hide {
+    display: none !important;
+  }
+
+  /* Stack form controls vertically */
+  .control-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Adjust button sizes */
+  .control-buttons {
+    flex-wrap: wrap !important;
+    gap: 0.25rem !important;
+  }
+
+  .control-buttons button {
+    font-size: 0.75rem !important;
+    padding: 0.25rem 0.5rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .invoice-document {
+    width: 100% !important;
+    max-width: none !important;
+    font-size: 0.95rem;
+  }
+
+  .invoice-header .flex {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+
+  .invoice-header .text-right {
+    text-align: left !important;
+    margin-top: 1rem !important;
+  }
+
+  /* Responsive table */
+  .table-container {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  table {
+    min-width: 600px !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .invoice-document {
+    width: 100% !important;
+    font-size: 0.98rem;
+  }
+
+  .control-panel {
+    padding: 0.75rem !important;
+  }
+
+  .control-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* Large screens */
+@media (min-width: 1280px) {
+  .invoice-document {
+    max-width: 210mm;
+    font-size: 1rem;
+  }
+
+  .max-w-6xl {
+    max-width: 80rem !important;
+  }
+}
+
+/* Ultra-wide screens */
+@media (min-width: 1536px) {
+  .max-w-6xl {
+    max-width: 90rem !important;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  button {
+    min-height: 44px !important;
+    min-width: 44px !important;
+  }
+
+  input,
+  select,
+  textarea {
+    font-size: 16px !important; /* Prevents zoom on iOS */
+  }
+
+  .floating-calculator {
+    bottom: 1rem !important;
+    right: 1rem !important;
+    width: 3.5rem !important;
+    height: 3.5rem !important;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .invoice-document {
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+  }
+}
+
+
+
+/* Landscape orientation on mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .invoice-header {
+    padding: 0.75rem !important;
+  }
+
+  .invoice-header h1 {
+    font-size: 1.125rem !important;
+  }
+
+  .invoice-header h2 {
+    font-size: 1.25rem !important;
+  }
+}
+
+/* Enhanced Print optimizations - Hide non-invoice elements */
+@media print {
+  @page {
+    size: A4;
+    margin: 0.5in;
+  }
+
+  /* Hide website footer and navigation elements */
+  footer,
+  nav,
+  header,
+  .site-footer,
+  .page-footer,
+  .no-print {
+    display: none !important;
+  }
+
+  /* Hide any buttons, form controls, and interactive elements */
+  button,
+  .btn,
+  input[type="button"],
+  input[type="submit"],
+  .form-controls,
+  .action-buttons,
+  .print-hide,
+  [data-print="hide"] {
+    display: none !important;
+  }
+
+  /* Hide any backdrop, modals, overlays */
+  .modal,
+  .overlay,
+  .backdrop,
+  .dialog,
+  [role="dialog"] {
+    display: none !important;
+  }
+
+  /* Ensure only the invoice content is visible */
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  /* Make sure invoice is full width when printing */
+  .invoice-document {
+    page-break-inside: avoid !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+
+  /* Optimize table printing */
+  table {
+    page-break-inside: avoid !important;
+    width: 100% !important;
+  }
+
+  tr {
+    page-break-inside: avoid !important;
+  }
+
+  /* Hide any tooltips, dropdowns, etc. */
+  .tooltip,
+  .dropdown-menu,
+  .popover,
+  .toast,
+  .notification {
+    display: none !important;
+  }
+
+  /* Show only print-specific elements */
+  .print-only {
+    display: block !important;
+  }
+
+  .print-inline {
+    display: inline !important;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .invoice-document {
+    border: 2px solid currentColor !important;
+  }
+
+  button {
+    border: 2px solid currentColor !important;
+  }
+}
+
+/* Login page styling */
+.login-gradient {
+  background: linear-gradient(
+    135deg,
+    oklch(0.98 0.005 85) 0%,
+    oklch(0.96 0.01 85) 25%,
+    oklch(0.94 0.015 85) 50%,
+    oklch(0.96 0.01 85) 75%,
+    oklch(0.98 0.005 85) 100%
+  );
+}
+
+.login-card {
+  backdrop-filter: blur(20px);
+  background: oklch(1 0 0 / 0.8);
+  border: 1px solid oklch(0.9 0.01 85 / 0.3);
+  box-shadow: 0 20px 25px -5px oklch(0.15 0.01 85 / 0.1), 0 10px 10px -5px oklch(0.15 0.01 85 / 0.04);
+}
+
+.brand-text {
+  background: linear-gradient(135deg, oklch(0.25 0.08 85) 0%, oklch(0.6 0.15 280) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.contact-card {
+  backdrop-filter: blur(10px);
+  background: oklch(1 0 0 / 0.6);
+  border: 1px solid oklch(0.9 0.01 85 / 0.2);
+}
+
+/* Smart Todo Manager Enhancements */
+.todo-floating-button {
+  --fab-shadow: 0 8px 25px -5px oklch(0.25 0.08 85 / 0.3);
+  --fab-shadow-hover: 0 20px 25px -5px oklch(0.25 0.08 85 / 0.4), 0 10px 10px -5px oklch(0.25 0.08 85 / 0.2);
+}
+
+/* Todo Panel Background Animations */
+@keyframes todo-panel-enter {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes todo-item-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.todo-panel {
+  animation: todo-panel-enter 300ms ease-out;
+}
+
+.todo-item {
+  animation: todo-item-enter 200ms ease-out;
+  animation-fill-mode: both;
+}
+
+.todo-item:nth-child(1) { animation-delay: 50ms; }
+.todo-item:nth-child(2) { animation-delay: 100ms; }
+.todo-item:nth-child(3) { animation-delay: 150ms; }
+.todo-item:nth-child(4) { animation-delay: 200ms; }
+.todo-item:nth-child(5) { animation-delay: 250ms; }
+
+/* Enhanced hover effects */
+.todo-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px -5px oklch(0.25 0.08 85 / 0.15);
+}
+
+/* Improved focus states */
+.focus-visible:focus {
+  outline: 2px solid oklch(0.6 0.15 280);
+  outline-offset: 2px;
+}
+
+/* Background pattern overlay */
+.todo-background-pattern {
+  background-image: radial-gradient(circle at 1px 1px, oklch(0.9 0.01 85 / 0.15) 1px, transparent 0);
+  background-size: 20px 20px;
+}
+
+/* Responsive improvements for todo panel */
+@media (max-width: 768px) {
+  .todo-panel {
+    max-width: 100vw !important;
+    width: 100vw !important;
+  }
+  
+  .todo-floating-button {
+    bottom: 1rem !important;
+    right: 1rem !important;
+    width: 3.5rem !important;
+    height: 3.5rem !important;
+  }
+  
+  .todo-quick-stats {
+    min-width: 180px !important;
+    font-size: 0.75rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Slightly zoom out the invoice for narrow phones and prevent horizontal scroll */
+  body {
+    overflow-x: hidden !important;
+  }
+  .invoice-document {
+    transform: scale(0.94);
+    transform-origin: top center;
+  }
+
+  .todo-panel {
+    border-radius: 0 !important;
+  }
+  
+  .todo-header {
+    padding: 1rem !important;
+  }
+  
+  .todo-controls {
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+  }
+}
+
+/* Dark mode enhancements */
+.dark .todo-panel {
+  background: oklch(0.12 0.01 85);
+  border-color: oklch(0.2 0.01 85);
+}
+
+.dark .todo-card {
+  background: oklch(0.15 0.01 85);
+  border-color: oklch(0.25 0.01 85);
+}
+
+.dark .todo-card:hover {
+  background: oklch(0.18 0.01 85);
+  box-shadow: 0 8px 25px -5px oklch(0.05 0.01 85 / 0.3);
+}
+
+/* Performance optimizations */
+.todo-item {
+  contain: layout style paint;
+  will-change: transform;
+}
+
+.todo-floating-button {
+  contain: layout style paint;
+  will-change: transform, box-shadow;
+}
+
+/* Floating action buttons adjustment based on sidebar state */
+/* Bottom-left button should be positioned relative to page content, not viewport */
+.mobile-action-menu {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  transition: left 300ms ease-in-out;
+}
+
+/* On desktop (lg and up), adjust left floating button based on sidebar collapsed state */
+@media (min-width: 1024px) {
+  /* Sidebar is always visible on desktop */
+  body[data-sidebar-collapsed="false"] .mobile-action-menu {
+    left: calc(288px + 1rem) !important; /* expanded sidebar width (w-72) + margin */
+  }
+  
+  body[data-sidebar-collapsed="true"] .mobile-action-menu {
+    left: calc(80px + 1rem) !important; /* collapsed sidebar width (w-20) + margin */
+  }
+}
+
+/* On mobile and tablet, floating buttons remain at viewport edges */
+@media (max-width: 1023px) {
+  .mobile-action-menu {
+    left: 1rem !important;
+  }
+}
